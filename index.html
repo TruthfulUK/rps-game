@@ -5,9 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+
+        <div class="sidebar">
+            <h1>ROCK PAPER SCISSORS</h1>
+
+            <p>Play Rock, Paper, Scissors vs. the Computer, select your choice using the buttons. First to 5 points wins!</p>
+        </div>
+        <div class="game">
+
+            <div class="scoreboard">
+                <p class="playerscore">Player: 0</p>
+                <p class="computerscore">Computer: 0</p>
+            </div>
+            
+            <div class="choices">
+                <button class="rock" data-choice="rock"><img src="/img/rock.png"></button>
+                <button class="paper" data-choice="paper"><img src="/img/paper.png"></button>
+                <button class="scissors" data-choice="scissors"><img src="/img/scissors.png"></button>
+            </div>
+            <div class="gamelog">
+            </div>
+            
+        </div>
+
+    </div>
+
     
 <script src="game.js" defer></script>
 </body>

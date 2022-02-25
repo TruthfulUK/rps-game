@@ -4,8 +4,137 @@ html {
 
 *, *::before, ::after {
     box-sizing: inherit;
+    padding: 0;
+    margin: 0;
 }
 
 body {
-    background: rgb(29, 28, 29);
+    height: 100vh;
+    background: #1d1c1d;
+    background: linear-gradient(to left top, #051937, #0f162d, #121423, #121119, #0f0f0f);
+    background-blend-mode: lighten;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(236, 236, 236);
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 2.5em;
+}
+
+/* Layout */
+
+.container > .game {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.container > .game > .choices {
+    margin: 30px 0;
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.container > .game > .scoreboard {
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.container > .sidebar {
+    
+    max-width: 300px;
+    padding: 20px;
+}
+
+/* UI Elements */
+
+.game > .scoreboard p {
+    font-weight: 700;
+    margin: 1rem;
+    padding: 10px;
+}
+
+.game > .gamelog > .text {
+    width: fit-content;
+    padding: 10px;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.playerscore, .computerscore, .draw {
+    background: #3185FC;
+    text-align: center;
+    color: #DDDDDD;
+    border-radius: 10px;
+    padding: 7px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.computerscore {
+    background: #E84855;
+}
+
+.draw {
+    background: rgba(15, 15, 15, 0.8);
+}
+
+button {
+    border: none;
+    border-radius: 50px;
+    padding: 20px;
+}
+
+button:disabled {
+    background: #fff;
+}
+
+button.selected {
+    transform: rotateY(360deg) scale(1.3) ;
+    box-shadow: 0 0 40px 40px rgba(49, 133, 252, 0.2);
+    transition: transform 0.2s linear, box-shadow 0.2s linear;
+}
+
+button > img {
+    max-width: 50px;
+}
+
+button + button,
+.scoreboard p + p {
+    margin-left: 2rem;
+}
+
+.text .compselect {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: #fff;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.embed {
+    max-width: 20px;
+    margin-top: 3px;
 }

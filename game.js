@@ -1,10 +1,27 @@
+const pScoreField = document.querySelector('.playerscore');
+const cScoreField = document.querySelector('.computerscore');
+const gameLog = document.querySelector('.gamelog')
+const buttons = document.querySelectorAll('button');
+const textLog = document.createElement('div');
+
+let pScore = 0;
+let cScore = 0;
+
+textLog.classList.add('text');
+
+buttons.forEach(button => {
+    button.addEventListener('click', e => {
+        button.classList.toggle('selected');
+        game(button.dataset.choice, button);
+    })
+})
+
 function computerPlay() {
     const options = ['rock','paper','scissors'];
     return options[Math.floor(Math.random()*3)]
 }
 
-function playRound() {
-    const playerSelection = prompt("Type in your selection: rock, paper or scissors.").toLowerCase();
+function playRound(playerSelection) {
     const computerSelection = computerPlay();
     const state = ['Draw','Player','Computer']
     let result;
@@ -27,42 +44,42 @@ function playRound() {
             result = null;
     }
 
-    console.log(`
-    > Computer has chosen ${computerSelection}. 
-    > Player has chosen ${playerSelection}.`);
+    textLog.innerHTML = `Computer has chosen ${computerSelection} <div class="compselect"><img class="embed" src="/img/${computerSelection}.png"></div> `
     return result;
 }
 
-function game() {
-    let rounds = 5;
-    let pScore = 0;
-    let cScore = 0;
+function game(playerSelection, button) {
 
-    for (let r = 0; r < rounds; r++) {
+    buttons.forEach(button => {
+        button.disabled = true;
+    })
 
-        switch(playRound()) {
-            case "Player":
-                pScore +=1;
-                console.log(`Player won round ${r + 1}`);
-                break;
-            case "Computer":
-                cScore +=1;
-                console.log(`Computer won round ${r + 1}`);
-                break;
-            case "Draw":
-                console.log(`Round ${r + 1} was a draw!`)
-                break;
-            default:
-                console.error(`Something went wrong on Round ${r + 1}`);
-        }
+    switch(playRound(playerSelection)) {
+        case "Player":
+            pScore +=1;
+            pScoreField.textContent = `Player: ${pScore}`;
+            textLog.innerHTML += `<div class="playerscore">Player Wins!</div>`
+            break;
+        case "Computer":
+            cScore +=1;
+            cScoreField.textContent = `Computer: ${cScore}`;
+            textLog.innerHTML += `<div class="computerscore">Computer Wins!<div>`
+            break;
+        case "Draw":
+            textLog.innerHTML += `<div class="draw">ROUND DRAW</div>`;
+            break;
+        default:
+            console.error(`Something went wrong`);
     }
 
-    if (pScore > cScore) console.log(`Player has won with a score of ${pScore} vs Computer with a score of ${cScore}.`);
-
-    else if (cScore > pScore) console.log(`Computer has won with a score of ${cScore} vs Player with a score of ${pScore}.`);
+    gameLog.appendChild(textLog);
     
-    else console.log(`It's a draw! Player won ${pScore} game(s) & Computer won ${cScore} game(s).`);
-
+    setTimeout(() => {
+        button.classList.toggle('selected');
+        gameLog.removeChild(textLog);
+        buttons.forEach(button => {
+            button.disabled = false;
+        })
+    }, 1500)
+    
 }
-
-game();
