@@ -44,7 +44,7 @@ function playRound(playerSelection) {
             result = null;
     }
 
-    textLog.innerHTML = `Computer has chosen ${computerSelection} <div class="compselect"><img class="embed" src="/img/${computerSelection}.png"></div> `
+    textLog.innerHTML = `Computer has chosen ${computerSelection} <div class="compselect"><img class="embed" src="img/${computerSelection}.png"></div> `
     return result;
 }
 
