@@ -9,9 +9,10 @@ A basic RPS game for The Odin Project [curriculum](https://www.theodinproject.co
   - [x] Display scores
   - [x] Player choice selector
   - [x] Display computer choice and round outcome
-  - [ ] Disable game when player or computer reaches 5 points
-  - [ ] Display game over and reset screen after game winner declared
+  - [x] Disable game when player or computer reaches 5 points
+  - [x] Display game over and reset screen after game winner declared
   - [ ] Store game history, display in a game log feed
+  - [ ] Refactor
  
 ### Credits
 

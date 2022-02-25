@@ -47,7 +47,7 @@ h1 {
 }
 
 .container > .game > .choices {
-    margin: 30px 0;
+    margin: 60px 0;
     min-width: 400px;
     display: flex;
     justify-content: center;
@@ -61,7 +61,7 @@ h1 {
     align-content: center;
 }
 
-.container > .sidebar {
+.container > .desc {
     
     max-width: 300px;
     padding: 20px;
@@ -72,7 +72,6 @@ h1 {
 .game > .scoreboard p {
     font-weight: 700;
     margin: 1rem;
-    padding: 10px;
 }
 
 .game > .gamelog > .text {
@@ -82,22 +81,31 @@ h1 {
     border-radius: 20px;
 }
 
-.playerscore, .computerscore, .draw {
+.playerscore, .computerscore, .roundcount, .draw {
     background: #3185FC;
     text-align: center;
     color: #DDDDDD;
-    border-radius: 10px;
-    padding: 7px;
+    padding: 10px 20px;
     font-weight: 700;
     margin-top: 10px;
+    border-radius: 10px;
 }
 
 .computerscore {
     background: #E84855;
 }
 
+.roundcount {
+    background: #ffffff;
+    color: #333;
+}
+
 .draw {
     background: rgba(15, 15, 15, 0.8);
+}
+
+.hide {
+    display: none;
 }
 
 button {
@@ -116,12 +124,16 @@ button.selected {
     transition: transform 0.2s linear, box-shadow 0.2s linear;
 }
 
+button.replay {
+    border-radius: 5px;
+    padding: 15px;
+}
+
 button > img {
     max-width: 50px;
 }
 
-button + button,
-.scoreboard p + p {
+button + button {
     margin-left: 2rem;
 }
 
